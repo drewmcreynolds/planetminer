@@ -9,12 +9,44 @@
 
     <title>Document</title>
 </head>
+<style>
+    /* This is for wire framing to see our rows/columns */
+    body.debug .container,
+    body.debug .container-fluid {
+        outline: 2px double blue;
+        outline-offset: -2px;
+    }
 
-<body>
-    <header></header>
-    <main class="container-fluid">
+    body.debug .row {
+        outline: 2px dashed red;
+        outline-offset: -2px;
+    }
+
+    body.debug [class*="col-"] {
+        outline: 2px dotted forestgreen;
+        outline-offset: -3px;
+    }
+</style>
+
+
+<body class="debug">
+    <header>
         <div class="row">
-            <div class="col text-center clickimage"></div>
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <h1>
+                    <span>Cheese:<span id="cheese">--</span></span>
+                </h1>
+            </div>
+        </div>
+    </header>
+    <main class="container-fluid">
+        <div class="row m-2">
+            <div class="col-md-4"></div>
+            <div onclick="mine()" class="col-md-4 text-center clickimage"></div>
+            <div class="col-md-4">
+                
+            </div>
         </div>
         
     </main>
@@ -22,7 +54,10 @@
 
 
 
-    <footer></footer>
+    <footer>
+        <button type="button btn btn-dark" onclick="buyPickAxe('pickaxes')">Buy Pickaxe <span id="howmanyclick">--</span></button>
+        <button type="button btn btn-dark" onclick="buyAutoUpgrade('rover')">Buy Rover <span id="howmanyauto">--</span></button>
+    </footer>
     <script src="app.js"></script>
 </body>
 
