@@ -54,7 +54,15 @@
 
 
 
-    <footer>
+    <footer class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <span>Cost</span><span id="costclick">--</span>
+            </div>
+            <div class="col-md-2">
+                <span>Cost</span><span id="costauto">--</span>
+            </div>
+        </div>
         <button type="button btn btn-dark" onclick="buyPickAxe('pickaxes')">Buy Pickaxe <span id="howmanyclick">--</span></button>
         <button type="button btn btn-dark" onclick="buyAutoUpgrade('rover')">Buy Rover <span id="howmanyauto">--</span></button>
     </footer>

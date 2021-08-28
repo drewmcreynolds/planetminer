@@ -1,46 +1,34 @@
-var cheese = 0;
+let cheese = 0;
+let cheesePerSec =0;
+let howmanyclick = 0;
+let howmanyauto = 0;
+let costclick = 0;
+let costauto = 0;
+let isCheeseIntervalRunning = false;
 
-var howmanyclick = 0;
-
-var howmanyauto = 0;
 
 
-
-let clickUpgrades = {
+let clickUpgrades = {}
+clickUpgrades ={
     pickaxes: {
         price: 5,
         quantity: 0,
-        multiplier:1
-    },
-    drills: {
-        price: 5,
-        quantity: 0,
-        multiplier:2
-    },
-    lasers: {
-        price: 6,
-        quantity: 0,
-        multiplier:3
+        multiplier:1,
+        upgradePriceIncermenter:5,
+
     }
 }
+ 
 
-let automaticUpgrades = {
+let automaticUpgrades = {}
+automaticUpgrades = {
     rover: {
         price: 5,
         quantity: 0,
         multiplier:2
-    },
-    shuttle: {
-        price: 5,
-        quantity: 0,
-        multiplier:300
-    },
-    crusier:{
-        price: 5,
-        quantity: 0,
-        multiplier:500
     }
 }
+
 
 
 function mine(){
@@ -50,49 +38,63 @@ function mine(){
         let total = upgrade.quantity*upgrade.multiplier
         cheese += total
     }
-    document.getElementById('cheese').innerHTML = cheese.toString()    
+    document.getElementById('cheese').innerHTML = cheese.toString()
+
 }
 function buyPickAxe(str){
     howmanyclick ++
     document.getElementById('howmanyclick').innerText = howmanyclick.toString()
     clickUpgrades[str].quantity++
-    cheese -= clickUpgrades[str].price
     clickUpgrades[str].multiplier*clickUpgrades[str].quantity
     
+    
+    let costclick = Math.floor(clickUpgrades[str].price*clickUpgrades[str].upgradePriceIncermenter*clickUpgrades[str].quantity)
+    document.getElementById('costclick').innerText = costclick.toString() 
+        
+    cheese -= Math.floor(clickUpgrades[str].price*clickUpgrades[str].upgradePriceIncermenter*clickUpgrades[str].quantity)
+    
+    
+         
     update()
 }
-
-// Update Auto upgrade towards the button
 function buyAutoUpgrade(str){
     howmanyauto++
     document.getElementById('howmanyauto').innerText = howmanyauto.toString()
     automaticUpgrades[str].quantity++
     cheese -= automaticUpgrades[str].price
-    automaticUpgrades[str].multiplier*automaticUpgrades[str].quantity
-    startInterval()
+    automaticUpgrades[str].multiplier*automaticUpgrades[str].quantity    
+    costauto += automaticUpgrades[str].price*automaticUpgrades[str].quantity
+    document.getElementById('costauto').innerText = costauto.toString()
+
     update()
 }
 
-// use towards global cheese count
 function useAutoUpgrade(){
-    cheese += 1
+   
     for(let key in automaticUpgrades){
         let upgrade = automaticUpgrades[key]
         let total = upgrade.quantity*upgrade.multiplier
         cheese += total
         }    
-    document.getElementById('cheese').innerText = cheese.toString()
+    document.getElementById('cheese').innerText = cheese.toString()    
+    update()
+}
+
+
+function cheeseInterval(){
+    if(isCheeseIntervalRunning == false){
+        setInterval(useAutoUpgrade, 3000)
+    }else{
+        
+    }
     
 }
-function startInterval(){
-  let collectionInterval = setInterval(useAutoUpgrade, 3000)
-}
-
-
 function update(){    
     document.getElementById('cheese').innerText = cheese.toString();
 }
 
 
 
+update()
+cheeseInterval()
 
