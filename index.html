@@ -31,34 +31,42 @@
 </style>
 
 
-<body class="debug">
-    <header class="container-fluid text-center">
+<body class="bg-dark">
+    <header class="container-fluid text-center bg-dark">
         <div class="row">
             <div class="col">
-                <h1>
-                    <span>Cheese:<span id="cheese">--</span></span>
+                <h1 class="text-light">
+                    <span>Resources:  <span id="cheese">--</span></span>
                 </h1>
             </div>
         </div>
     </header>
-    <main class="container-fluid text-center">
-        <div class="row m-0 p-0">
+
+    <main class="container-fluid bgimg">
+        <div class="row m-0 p-0 justify-content-center">
             <div class="col-4"></div>
             <div class="col-md-4 clickimage" onclick="mine()" oncontextmenu="preventContext()" draggable="false"></div>
             <div class="col-4"></div>
         </div>
         </div>
-
     </main>
 
-
-
-
-    <footer class="container text-center">
-
-        
-
-        <div class="row">
+    <footer class="container-fluid text-center">
+        <div class="row bg-dark p-2">
+            <div class="col-md-3 text-light">
+                <h3><span>Per click: </span><span id="currentclick">1</span></h3>
+            </div>
+            <div class="col-md-3 text-light">
+                <h3><span>Per 3 sec: </span><span id="currentauto1">--</span></h3>
+            </div>
+            <div class="col-md-3 text-light">
+                <h3><span>Per 3 sec: </span><span id="currentauto2">--</span></h3>
+            </div>
+            <div class="col-md-3 text-light">
+                <h3><span>Per 3 sec: </span><span id="currentauto3">--</span></h3>
+            </div>
+        </div>
+        <div class="row text-dark bg-warning fw-bold p-2">
             <div class="col-md-3">
                 <span>Cost: </span><span id="costclick">25</span>
             </div>
@@ -68,22 +76,32 @@
             <div class="col-md-3">
                 <span>Cost: </span><span id="costauto2">1500</span>
             </div>
-        </div>
-        <div class="row">
             <div class="col-md-3">
-                <button id= "enablepickaxe" type="button" class="btn btn-dark" onclick="buyPickAxe('pickaxes')" data-bs-toggle="tooltip"
+                <span>Cost: </span><span id="costauto3">4500</span>
+            </div>
+        </div>
+        <div class="row bg-primary p-2">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-dark" onclick="buyPickAxe('pickaxes')" data-bs-toggle="tooltip"
                     title='increases each click by 5 cheese'>Buy Pickaxe <span id="howmanyclick">--</span></button>
             </div>
             <div class="col-md-3">
-                <button type="button" class="btn btn-dark" onclick="buyAutoUpgradeRover('rover')" data-bs-toggle="tooltip"
-                    title='increases cheese by 10 per 3 seconds per'>Buy Rover <span id="howmanyautorover">--</span></button>
+                <button type="button" class="btn btn-dark" onclick="buyAutoUpgradeRover('rover')"
+                    data-bs-toggle="tooltip" title='increases cheese by 10 per 3 seconds per'>Buy Rover <span
+                        id="howmanyautorover">--</span></button>
             </div>
             <div class="col-md-3">
-                <button type="button" class="btn btn-dark" onclick="buyAutoUpgradeShuttle('shuttle')" data-bs-toggle="tooltip"
-                title='increases cheese by 25 per 3 seconds per'>Buy Shuttle <span id="howmanyautoshuttle">--</span></button>
+                <button type="button" class="btn btn-dark" onclick="buyAutoUpgradeShuttle('shuttle')"
+                    data-bs-toggle="tooltip" title='increases cheese by 25 per 3 seconds per'>Buy Shuttle <span
+                        id="howmanyautoshuttle">--</span></button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-dark" onclick="buyAutoUpgradeCrusier('crusier')"
+                    data-bs-toggle="tooltip" title='increases cheese by 100 per 3 seconds per'>Buy Crusier <span
+                        id="howmanyautocrusier">--</span></button>
             </div>
         </div>
-        </div>
+        </div>        
     </footer>
     <script src="app.js"></script>
 </body>

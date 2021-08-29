@@ -1,9 +1,14 @@
 .clickimage{
-    background-image: url('https://images.unsplash.com/photo-1629648920459-83b1b62ae46e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');
-    
+    background-image: url('https://i.pinimg.com/originals/58/32/04/583204dd140b22551fb2e486dc249f30.jpg');
+    border-radius: 50%;
+    background-position: center;
     background-size: cover;
     height: 30rem;
     width: 30rem;
     
     
+}
+.bgimg{
+    background-image: url('https://images.unsplash.com/photo-1503264116251-35a269479413?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
 }
