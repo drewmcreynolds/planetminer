@@ -1,10 +1,15 @@
 let cheese = 0;
 let cheesePerSec =0;
 let howmanyclick = 0;
-let howmanyauto = 0;
+let howmanyautorover = 0;
+let howmanyautoshuttle = 0;
 let costclick = 0;
 let costauto = 0;
+let costauto2 = 0;
 let isCheeseIntervalRunning = false;
+let enablepickaxe = true;
+
+
 
 
 
@@ -26,11 +31,17 @@ automaticUpgrades = {
     rover: {
         price: 250,
         quantity: 0,
-        multiplier:50,
-        upgradePriceIncermenter:1,
-        
+        multiplier: 10,
+        upgradePriceIncermenter: 1,        
+    },
+    shuttle: {
+        price: 1500,
+        quantity: 0,
+        multiplier: 25,
+        upgradePriceIncermenter: 1,
     }
 }
+
  function preventContext(){
      console.log('no!')
      event.preventDefault()
@@ -48,30 +59,45 @@ function mine(){
     document.getElementById('cheese').innerText = cheese.toString()
 
 }
+
+
+
+
 function buyPickAxe(str){
-    howmanyclick ++
+    if(cheese >=Math.floor(clickUpgrades[str].price*clickUpgrades[str].upgradePriceIncermenter*clickUpgrades[str].quantity)+25 ){
+    howmanyclick++
     document.getElementById('howmanyclick').innerText = howmanyclick.toString()
     clickUpgrades[str].quantity++
     clickUpgrades[str].multiplier*clickUpgrades[str].quantity    
     let costclick = Math.floor(clickUpgrades[str].price*clickUpgrades[str].upgradePriceIncermenter*clickUpgrades[str].quantity)+25
-
     document.getElementById('costclick').innerText = costclick.toString() 
-
-    cheese -= Math.floor(clickUpgrades[str].price*clickUpgrades[str].upgradePriceIncermenter*clickUpgrades[str].quantity)
-
+    cheese -= Math.floor(clickUpgrades[str].price*clickUpgrades[str].upgradePriceIncermenter*clickUpgrades[str].quantity)}
+    else{}
     update()
 }
-function buyAutoUpgrade(str){
-    howmanyauto++
-    document.getElementById('howmanyauto').innerText = howmanyauto.toString()
+function buyAutoUpgradeRover(str){
+    howmanyautorover++
+    document.getElementById('howmanyautorover').innerText = howmanyautorover.toString()
     automaticUpgrades[str].quantity++
     automaticUpgrades[str].multiplier*automaticUpgrades[str].quantity    
     let costauto = Math.floor(automaticUpgrades[str].price*automaticUpgrades[str].quantity*automaticUpgrades[str].upgradePriceIncermenter)+250
     document.getElementById('costauto').innerText = costauto.toString()
     cheese -= Math.floor(automaticUpgrades[str].price*automaticUpgrades[str].quantity*automaticUpgrades[str].upgradePriceIncermenter)
+    update()
+}
+
+function buyAutoUpgradeShuttle(str){
+    howmanyautoshuttle++
+    document.getElementById('howmanyautoshuttle').innerText = howmanyautoshuttle.toString()
+    automaticUpgrades[str].quantity++
+    automaticUpgrades[str].multiplier*automaticUpgrades[str].quantity    
+    let costauto2 = Math.floor(automaticUpgrades[str].price*automaticUpgrades[str].quantity*automaticUpgrades[str].upgradePriceIncermenter)+1500
+    document.getElementById('costauto2').innerText = costauto2.toString()
+    cheese -= Math.floor(automaticUpgrades[str].price*automaticUpgrades[str].quantity*automaticUpgrades[str].upgradePriceIncermenter)
 
     update()
 }
+
 
 function useAutoUpgrade(){   
     for(let key in automaticUpgrades){
@@ -82,6 +108,7 @@ function useAutoUpgrade(){
     document.getElementById('cheese').innerText = cheese.toString()    
     update()
 }
+
 
 
 function cheeseInterval(){

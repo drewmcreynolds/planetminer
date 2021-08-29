@@ -55,22 +55,32 @@
 
 
     <footer class="container text-center">
+
+        
+
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <span>Cost: </span><span id="costclick">25</span>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <span>Cost: </span><span id="costauto">250</span>
+            </div>
+            <div class="col-md-3">
+                <span>Cost: </span><span id="costauto2">1500</span>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <button type="button" class="btn btn-dark product locked disabled" onclick="buyPickAxe('pickaxes')" data-bs-toggle="tooltip"
+            <div class="col-md-3">
+                <button id= "enablepickaxe" type="button" class="btn btn-dark" onclick="buyPickAxe('pickaxes')" data-bs-toggle="tooltip"
                     title='increases each click by 5 cheese'>Buy Pickaxe <span id="howmanyclick">--</span></button>
             </div>
-            <div class="col-md-6">
-                <button type="button" class="btn btn-dark" onclick="buyAutoUpgrade('rover')" data-bs-toggle="tooltip"
-                    title='increases cheese by 50 per 3 seconds per'>Buy Rover <span id="howmanyauto">--</span></button>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-dark" onclick="buyAutoUpgradeRover('rover')" data-bs-toggle="tooltip"
+                    title='increases cheese by 10 per 3 seconds per'>Buy Rover <span id="howmanyautorover">--</span></button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-dark" onclick="buyAutoUpgradeShuttle('shuttle')" data-bs-toggle="tooltip"
+                title='increases cheese by 25 per 3 seconds per'>Buy Shuttle <span id="howmanyautoshuttle">--</span></button>
             </div>
         </div>
         </div>
