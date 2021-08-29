@@ -36,7 +36,7 @@ automaticUpgrades = {
      event.preventDefault()
  }
 
-
+ 
 
 function mine(){
     cheese += 1;
@@ -92,6 +92,8 @@ function cheeseInterval(){
 function update(){    
     document.getElementById('cheese').innerText = cheese.toString();
 }
+
+
 
 
 

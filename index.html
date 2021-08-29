@@ -32,10 +32,9 @@
 
 
 <body class="debug">
-    <header>
+    <header class="container-fluid text-center">
         <div class="row">
-            <div class="col-md-6"></div>
-            <div class="col-md-6">
+            <div class="col">
                 <h1>
                     <span>Cheese:<span id="cheese">--</span></span>
                 </h1>
@@ -46,9 +45,8 @@
         <div class="row m-0 p-0">
             <div class="col-4"></div>
             <div class="col-md-4 clickimage" onclick="mine()" oncontextmenu="preventContext()" draggable="false"></div>
-            <div class="col-4">
-
-            </div>
+            <div class="col-4"></div>
+        </div>
         </div>
 
     </main>
@@ -67,7 +65,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <button type="button" class="btn btn-dark" onclick="buyPickAxe('pickaxes')" data-bs-toggle="tooltip"
+                <button type="button" class="btn btn-dark product locked disabled" onclick="buyPickAxe('pickaxes')" data-bs-toggle="tooltip"
                     title='increases each click by 5 cheese'>Buy Pickaxe <span id="howmanyclick">--</span></button>
             </div>
             <div class="col-md-6">
